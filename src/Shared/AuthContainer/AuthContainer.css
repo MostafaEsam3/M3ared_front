@@ -1,0 +1,36 @@
+.background-image{
+    background-image: url("./../../assets/Events timeline.svg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -11;
+}
+.copyright{
+    position: absolute;
+    bottom: 0;
+    background-color: #074D31;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 100%;
+    direction: rtl;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.copyright h1{
+    margin-right:60px ;
+}
+@media  screen and (max-width: 600px) {
+    .copyright h1{
+        margin-right: 0px;
+        text-align: center;
+    }
+    .copyright{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+  }

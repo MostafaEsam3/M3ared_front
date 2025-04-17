@@ -1,0 +1,10 @@
+@media screen and (max-width: 1600px){
+   .mo{
+    width: 50% !important;
+   }
+}
+@media screen and (max-width: 767px){
+    .mo{
+        max-width: 10px !important;
+    }
+}
