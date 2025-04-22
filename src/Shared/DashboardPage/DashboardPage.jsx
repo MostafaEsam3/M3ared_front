@@ -1,4 +1,5 @@
 // DashboardPage.jsx
+import { DgaCard } from "platformscode-new-react";
 import React, { useState } from "react";
 
 const DashboardPage = ({
@@ -165,6 +166,7 @@ const DashboardPage = ({
                 >
                   إضافة بند جديد
                 </button>
+    
               </div>
             </div>
 
