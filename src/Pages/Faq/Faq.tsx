@@ -3,95 +3,127 @@ import editImage from "./../../assets/Leading Icon.svg";
 import deleteImage from "./../../assets/Leading Icon (1).svg";
 import ModalTemplate from '../../Shared/Modal/ModalTemplate';
 
-const Faq = ({ isOpen, onClose }) => {
-    const breadcrumbItems = [
-        { label: "لوحة التحكم", href: "#" },
-        { label: "أجوبتنا", href: "#" },
-    ];
-    const formFields = [
-        {
-            id: "Address",
-            label: "عنوان البند",
-            type: "text",
-            placeholder: "عنوان البند ",
-            inputCss: "col-span-12 md:col-span-10",
-        },
-    ];
-      const [isModalOpen, setIsModalOpen] = useState(false);
-    
-      const inputs = [
-        {
-          label: 'عنوان البند باللغة العربيه',
-          placeholder: 'عنوان البند باللغة العربيه',
-          type: 'text',
-          name: 'titleAr',
-          
-        },
-        {
-          label: 'عنوان البند باللغة الانجليزية',
-          placeholder: 'عنوان البند باللغة الانجليزية',
-          type: 'text',
-          name: 'titleEn',
-        },
-        {
-            label: 'عنوان البند باللغة الانجليزية',
-            placeholder: 'عنوان البند باللغة الانجليزية',
-            type: 'text',
-            name: 'titleEn',
-          },
-          {
-            label: 'عنوان البند باللغة الانجليزية',
-            placeholder: 'عنوان البند باللغة الانجليزية',
-            type: 'text',
-            name: 'titleEnnn',
-          },
-        {
-          label: 'وصف البند باللغة العربية',
-          placeholder: 'وصف البند باللغة العربية',
-          type: 'textarea',
-          name: 'descriptionAr',
-          rows: 4,
-        },
-        {
-          label: 'وصف البند باللغة الانجليزية',
-          placeholder: 'وصف البند باللغة الانجليزية',
-          type: 'textarea',
-          name: 'descriptionEnn',
-          rows: 4,
-        }, {
-            label: 'وصف البند باللغة الانجليزية',
-            placeholder: 'وصف البند باللغة الانجليزية',
-            type: 'textarea',
-            name: 'descriptionEn',
-            rows: 4,
-          },
-      ];
-    
-      const buttons = [
-        {
-          text: 'تعديل',
-          type: 'submit',
-          className:
-            'inline-flex w-full justify-center rounded-3xl bg-[#1B8354] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:w-auto m-0',
-          onClick: () => {}, // Optional: handled by form submit
-        },
-        {
-          text: 'الغاء',
-          type: 'button',
-          className:
-            'mt-3 inline-flex w-full justify-center rounded-3xl bg-[#F3F4F6] px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto m-0',
-          onClick: () => setIsModalOpen(false),
-        },
-      ];
-    
-      const handleSubmit = (formData) => {
-        console.log('Form Data:', formData);
-        setIsModalOpen(false);
-      };
+interface FaqProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-    return (
-        <>
-            <section
+interface InputField {
+  label: string;
+  placeholder: string;
+  type: string;
+  name: string;
+  rows?: number;
+}
+
+interface ButtonConfig {
+  text: string;
+  type: 'submit' | 'button';
+  className: string;
+  onClick: () => any;
+}
+
+interface FormField {
+  id: string;
+  label: string;
+  type: string;
+  placeholder: string;
+  inputCss: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
+  const breadcrumbItems = [
+    { label: "لوحة التحكم", href: "#" },
+    { label: "أجوبتنا", href: "#" },
+  ];
+
+  const formFields: FormField[] = [
+    {
+      id: "Address",
+      label: "عنوان البند",
+      type: "text",
+      placeholder: "عنوان البند ",
+      inputCss: "col-span-12 md:col-span-10",
+    },
+  ];
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const inputs: InputField[] = [
+    {
+      label: 'عنوان البند باللغة العربيه',
+      placeholder: 'عنوان البند باللغة العربيه',
+      type: 'text',
+      name: 'titleAr',
+    },
+    {
+      label: 'عنوان البند باللغة الانجليزية',
+      placeholder: 'عنوان البند باللغة الانجليزية',
+      type: 'text',
+      name: 'titleEn',
+    },
+    {
+      label: 'عنوان البند باللغة الانجليزية',
+      placeholder: 'عنوان البند باللغة الانجليزية',
+      type: 'text',
+      name: 'titleEn',
+    },
+    {
+      label: 'عنوان البند باللغة الانجليزية',
+      placeholder: 'عنوان البند باللغة الانجليزية',
+      type: 'text',
+      name: 'titleEnnn',
+    },
+    {
+      label: 'وصف البند باللغة العربية',
+      placeholder: 'وصف البند باللغة العربية',
+      type: 'textarea',
+      name: 'descriptionAr',
+      rows: 4,
+    },
+    {
+      label: 'وصف البند باللغة الانجليزية',
+      placeholder: 'وصف البند باللغة الانجليزية',
+      type: 'textarea',
+      name: 'descriptionEnn',
+      rows: 4,
+    },
+    {
+      label: 'وصف البند باللغة الانجليزية',
+      placeholder: 'وصف البند باللغة الانجليزية',
+      type: 'textarea',
+      name: 'descriptionEn',
+      rows: 4,
+    },
+  ];
+
+  const buttons: ButtonConfig[] = [
+    {
+      text: 'تعديل',
+      type: 'submit',
+      className:
+        'inline-flex w-full justify-center rounded-3xl bg-[#1B8354] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:w-auto m-0',
+      onClick: () => {},
+    },
+    {
+      text: 'الغاء',
+      type: 'button',
+      className:
+        'mt-3 inline-flex w-full justify-center rounded-3xl bg-[#F3F4F6] px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto m-0',
+      onClick: () => setIsModalOpen(false),
+    },
+  ];
+
+  const handleSubmit = (formData: Record<string, any>) => {
+    console.log('Form Data:', formData);
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+ <section
                 className="dashboard p-5"
                 style={{ backgroundColor: "#F3F4F6", direction: "rtl", overflow: "auto" }}
             >
@@ -256,21 +288,17 @@ const Faq = ({ isOpen, onClose }) => {
                         </div>
                     </div>
                 </div>
-            </section>
-            <ModalTemplate
-        isOpen={false}
+            </section>    
+              <ModalTemplate
+        isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="أضافة بند جديد"
         inputs={inputs}
         buttons={buttons}
-        onSubmit={handleSubmit}/>
-
-        </>
-    );
-}
+        onSubmit={handleSubmit}
+      />
+    </>
+  );
+};
 
 export default Faq;
-
-
-
-

@@ -16,10 +16,8 @@ import ListOfEvents from '../../Pages/ListOfEvents/ListOfEvents';
 import TypeOfEvents from '../../Pages/TypeOfEvents/TypeOfEvents';
 import Faq from '../../Pages/Faq/Faq';
 
-
-
 // Public routes with layout
-export const publicRoutesWithLayout = [
+export const publicRoutesWithLayout: any[] = [
   {
     path: '/',
     name: 'about us',
@@ -98,12 +96,12 @@ export const publicRoutesWithLayout = [
   {
     path: '/faq',
     name: 'faq',
-    component: Faq
+    component: Faq,
   },
 ];
 
 // Public routes without layout
-export const publicRoutesWithoutLayout = [
+export const publicRoutesWithoutLayout: any[] = [
   {
     path: '/auth',
     name: 'auth',
@@ -117,17 +115,15 @@ export const publicRoutesWithoutLayout = [
 ];
 
 // Example: Role-based access control (replace with your Amongst logic)
-const getUserRole = () => {
-  return 'admin'; 
+const getUserRole = (): string => {
+  return 'admin';
 };
 
 // ProtectedRoute component for role-based access
-const ProtectedRoute = ({ component: Component, roles }) => {
-  const userRole = getUserRole();
+const ProtectedRoute: React.FC<any> = ({ component: Component, roles }: any) => {
+  const userRole: string = getUserRole();
   if (!roles.includes(userRole)) {
     return <div>Unauthorized Access</div>; // Replace with any error page we need
   }
   return <Component />;
 };
-
-

@@ -1,26 +1,24 @@
-// AuthPage.jsx
 import React, { useState } from "react";
-import AuthContainer from "./../../Shared/AuthContainer/AuthContainer.jsx";
+import AuthContainer from "../../Shared/AuthContainer/AuthContainer";
 
-export default function Verification() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Verification: React.FC = () => {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const formFields = [
+  const formFields: any[] = [
     {
       id: "code",
       label: "  كود التحقق",
       type: "text",
       placeholder: "  كود التحقق",
       value: username,
-      onChange: (e) => setUsername(e.target.value),
+      onChange: (e: any) => setUsername(e.target.value),
     },
-    
   ];
 
-  const buttons = [
+  const buttons: any[] = [
     {
-      label:"التالي",
+      label: "التالي",
       type: "submit",
       className: "bg-[#1B8354] hover:bg-blue-700 text-white",
       onClick: () => console.log("Change Password clicked"),
@@ -28,12 +26,12 @@ export default function Verification() {
     {
       label: "رجوع",
       type: "button",
-      className: " hover:bg-blue-700 text-[#161616] mt-2",
+      className: "hover:bg-blue-700 text-[#161616] mt-2",
       onClick: () => console.log("Back clicked"),
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("Form submitted:", { username, password });
   };
@@ -46,4 +44,6 @@ export default function Verification() {
       onSubmit={handleSubmit}
     />
   );
-}
+};
+
+export default Verification;

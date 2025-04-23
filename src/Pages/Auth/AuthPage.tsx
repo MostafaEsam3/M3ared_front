@@ -1,19 +1,18 @@
-// AuthPage.jsx
 import React, { useState } from "react";
-import AuthContainer from "./../../Shared/AuthContainer/AuthContainer.jsx";
+import AuthContainer from "../../Shared/AuthContainer/AuthContainer.jsx";
 
-export default function AuthPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const AuthPage: React.FC = () => {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const formFields = [
+  const formFields: any[] = [
     {
       id: "username",
       label: "اسم المستخدم",
       type: "text",
       placeholder: "اسم المستخدم",
       value: username,
-      onChange: (e) => setUsername(e.target.value),
+      onChange: (e: any) => setUsername(e.target.value),
     },
     {
       id: "password",
@@ -21,11 +20,11 @@ export default function AuthPage() {
       type: "password",
       placeholder: "كلمة المرور",
       value: password,
-      onChange: (e) => setPassword(e.target.value),
+      onChange: (e: any) => setPassword(e.target.value),
     },
   ];
 
-  const buttons = [
+  const buttons: any[] = [
     {
       label: "تغيير كلمة المرور",
       type: "submit",
@@ -40,7 +39,7 @@ export default function AuthPage() {
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("Form submitted:", { username, password });
   };
@@ -53,4 +52,6 @@ export default function AuthPage() {
       onSubmit={handleSubmit}
     />
   );
-}
+};
+
+export default AuthPage;

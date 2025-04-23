@@ -15,8 +15,8 @@ import {
 import SuidiImage from './../../assets/saudi-emblem.png';
 import { Link } from 'react-router-dom';
 
-const Sidebar = ({ isOpen ,onItemClick}) => {
-  const [menuItems, setMenuItems] = useState([
+const Sidebar: any = ({ isOpen, onItemClick }: any) => {
+  const [menuItems, setMenuItems]: any = useState([
     {
       id: 'electronic-services',
       title: 'الخدمات الإلكترونية',
@@ -105,9 +105,9 @@ const Sidebar = ({ isOpen ,onItemClick}) => {
     },
   ]);
 
-  const toggleExpand = (id) => {
-    setMenuItems(prevItems =>
-      prevItems.map(item =>
+  const toggleExpand: any = (id: any) => {
+    setMenuItems((prevItems: any) =>
+      prevItems.map((item: any) =>
         item.id === id
           ? { ...item, isExpanded: !item.isExpanded }
           : item
@@ -119,7 +119,7 @@ const Sidebar = ({ isOpen ,onItemClick}) => {
     return (
       <div className="w-16 bg-[#074D31] text-white transition-all duration-300">
       
-        {menuItems.map((item) => (
+        {menuItems.map((item: any) => (
           <div key={item.id} className="py-3 px-4 flex justify-center hover:bg-hover-green cursor-pointer">
             <span className="text-xl">{item.icon}</span>
           </div>
@@ -129,7 +129,7 @@ const Sidebar = ({ isOpen ,onItemClick}) => {
   }
 
   return (
-    <div className="w-64 bg-[#074D31] text-white transition-all duration-300"style={{ direction: 'rtl' }}>
+    <div className="w-64 bg-[#074D31] text-white transition-all duration-300" style={{ direction: 'rtl' }}>
         {/* <div>
           <img
             src={SuidiImage}
@@ -137,7 +137,7 @@ const Sidebar = ({ isOpen ,onItemClick}) => {
             className="h-10 w-full "
           />
         </div> */}
-      {menuItems.map((item) => (
+      {menuItems.map((item: any) => (
         <div key={item.id}>
           <div
             className="py-3 px-4 flex items-center justify-between hover:bg-hover-green cursor-pointer"
@@ -158,7 +158,7 @@ const Sidebar = ({ isOpen ,onItemClick}) => {
 
           {item.subItems && item.isExpanded && (
             <div className="bg-dark-green">
-              {item.subItems.map((subItem) => (
+              {item.subItems.map((subItem: any) => (
                 <div
                   key={subItem.id}
                   className="py-2 px-4 pr-12 flex items-center justify-between hover:bg-hover-green cursor-pointer"

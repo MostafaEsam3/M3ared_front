@@ -1,8 +1,26 @@
-// DashboardPage.jsx
-import { DgaCard } from "platformscode-new-react";
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 
-const DashboardPage = ({
+// All interfaces replaced with type aliases using `any`
+type BreadcrumbItem = any;
+type TableHeader = any;
+type TableData = any;
+type ExtraButton = any;
+type FormField = any;
+
+type DashboardPageProps = {
+  breadcrumbItems: BreadcrumbItem[];
+  title: string;
+  searchPlaceholder: string;
+  tableHeaders: TableHeader[];
+  tableData: TableData[];
+  onSearch: (value: string) => void;
+  onReset: () => void;
+  onAddNew: () => void;
+  extraButtons?: ExtraButton[];
+  formFields?: FormField[];
+};
+
+const DashboardPage: FC<DashboardPageProps> = ({
   breadcrumbItems,
   title,
   searchPlaceholder,
@@ -14,16 +32,17 @@ const DashboardPage = ({
   extraButtons = [],
   formFields = [],
 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   return (
     <section
-      className="dashboard p-5"
+      className="dashboard p-5 bg-red-600"
       style={{ backgroundColor: "#F3F4F6", direction: "rtl", overflow: "auto" }}
     >
       {/* Breadcrumb Section header */}
-      <div className=" rounded-2xl">
-        <div className="head p-3 bg-white h-[130px] rounded-lg  mt-5">
+      <div className="rounded-2xl">
+        <div className="head p-4 bg-white rounded-lg mt-5">
           <nav className="flex" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-2 space-x-reverse">
               {breadcrumbItems.map((item, index) => (
@@ -47,10 +66,11 @@ const DashboardPage = ({
                   )}
                   <a
                     href={item.href}
-                    className={`text-sm font-medium ${index === breadcrumbItems.length - 1
-                      ? "text-[#9DA4AE]"
-                      : "text-[#384250]"
-                      } hover:text-[#384250]`}
+                    className={`text-sm font-medium ${
+                      index === breadcrumbItems.length - 1
+                        ? "text-[#9DA4AE]"
+                        : "text-[#384250]"
+                    } hover:text-[#384250]`}
                   >
                     {item.label}
                   </a>
@@ -62,42 +82,16 @@ const DashboardPage = ({
         </div>
       </div>
 
-      {/* Search Filter Section AND Table container  */}
-      <div className="bg-[#FFFFFF] mt-10  Wrap-search-Table rounded-2xl">
-        <div className=" p-5">
-          <div className="head p-3 pb-5 bg-[#F3F4F6] rounded-2xl  mt-1">
+      {/* Search Filter Section AND Table container */}
+      <div className="bg-[#FFFFFF] mt-10 Wrap-search-Table rounded-2xl">
+        <div className="p-5">
+          <div className="head p-3 pb-5 bg-[#F3F4F6] rounded-2xl mt-1">
             <h1 className="font-bold text-[#161616] text-xl pt-5">تصفية البحث</h1>
             <div className="mt-4">
-              {/* <label className="font-normal text-sm">عنوان البند</label> */}
-              {/* old grid */}
-              {/* <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-12 md:col-span-10">
-                  <input
-                    type="text"
-                    className="border border-gray-300 rounded-2xl p-2 w-full mt-2 h-[40px] rounded-[1.375rem]"
-                    placeholder={searchPlaceholder}
-                    onChange={(e) => onSearch && onSearch(e.target.value)}
-                  />
-                </div>
-                <div className="col-span-12 md:col-span-1">
-                  <button className="bg-[#0D121C] text-white rounded-3xl p-2 w-full mt-2 h-[40px]">
-                    بحث
-                  </button>
-                </div>
-                <div className="col-span-12 md:col-span-1">
-                  <button
-                    className="bg-[#D2D6DB] text-black rounded-3xl p-2 w-full mt-2 h-[40px]"
-                    onClick={onReset}
-                  >
-                    إعادة تعيين
-                  </button>
-                </div>
-              </div> */}
-              {/* new form dynamic */}
               <form>
                 <div className="grid grid-cols-12 gap-3 items-end">
                   {formFields.map((field, index) => (
-                    <div key={index} className={`col-span-12  ${field.inputCss}`}>
+                    <div key={index} className={`col-span-12 ${field.inputCss}`}>
                       <label
                         className="block text-gray-700 text-sm font-bold mb-2"
                         htmlFor={field.id}
@@ -116,20 +110,20 @@ const DashboardPage = ({
                   ))}
 
                   {/* Search Button */}
-                  <div className="col-span-12 md:col-span-1  flex flex-col justify-end h-full">
+                  <div className="col-span-12 md:col-span-1 flex flex-col justify-end h-full">
                     <button
                       type="submit"
-                      className="bg-[#0D121C] text-white rounded-3xl p-2 w-full h-[40px]"
+                      className="bg-[#0D121C] text-white rounded-3xl p-2 w-full"
                     >
                       بحث
                     </button>
                   </div>
 
                   {/* Reset Button */}
-                  <div className="col-span-12 md:col-span-2   flex flex-col justify-end h-full">
+                  <div className="col-span-12 md:col-span-2 flex flex-col justify-end h-full">
                     <button
                       type="button"
-                      className="bg-[#D2D6DB] text-black rounded-3xl p-2 w-full  "
+                      className="bg-[#D2D6DB] text-black rounded-3xl p-2 w-full"
                       onClick={onReset}
                     >
                       إعادة تعيين
@@ -137,15 +131,13 @@ const DashboardPage = ({
                   </div>
                 </div>
               </form>
-
-
             </div>
           </div>
         </div>
 
         {/* Table Section */}
-        <div className=" mt-7">
-          <div className="head p-3 bg-white rounded-2xl  mt-5">
+        <div className="mt-7">
+          <div className="head p-3 bg-white rounded-2xl mt-5">
             <div className="grid grid-cols-12 items-center rounded px-4 py-2">
               <div className="col-span-6 text-right font-bold text-2xl">
                 {title}
@@ -166,13 +158,12 @@ const DashboardPage = ({
                 >
                   إضافة بند جديد
                 </button>
-    
               </div>
             </div>
 
             {/* Table */}
             <div className="p-4 bg-white text-sm">
-              <table className="w-full  text-right border border-gray-200">
+              <table className="w-full text-right border border-gray-200">
                 <thead className="bg-gray-100 text-gray-600">
                   <tr>
                     {tableHeaders.map((header, index) => (
@@ -208,7 +199,6 @@ const DashboardPage = ({
                 <button className="text-green-600 font-semibold underline">1</button>
                 <button className="hover:text-black">{">"}</button>
               </div>
-
             </div>
           </div>
         </div>

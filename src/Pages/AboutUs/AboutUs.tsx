@@ -1,32 +1,32 @@
 import React, { useState } from "react";
-import DashboardPage from "./../../Shared/DashboardPage/DashboardPage.jsx";
+import DashboardPage from "../../Shared/DashboardPage/DashboardPage";
 import editImage from "./../../assets/Leading Icon.svg";
 import deleteImage from "./../../assets/Leading Icon (1).svg";
 import exelImage from "./../../assets/Leading Icon11.svg";
-import TestModal from "../../Shared/Modal/TestDynamicModal.jsx";
+ import TestModal from "../../Shared/Modal/TestDynamicModal";
 
-const AboutUs = () => {
+const AboutUs: React.FC = () => {
   // State to control modal visibility
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   // Function to open the modal
-  const handleEditClick = () => {
+  const handleEditClick = (): void => {
     console.log("Edit button clicked");
     setIsModalOpen(true);
   };
 
-  const breadcrumbItems = [
+  const breadcrumbItems: any[] = [
     { label: "لوحة التحكم", href: "#" },
     { label: "عن الهيئة", href: "#" },
   ];
 
-  const tableHeaders = [
+  const tableHeaders: any[] = [
     { label: "عنوان البند باللغة العربية", key: "arabicTitle", width: "33%" },
     { label: "عنوان البند باللغة الإنجليزية", key: "englishTitle", width: "50%" },
     { label: "إجراء", key: "actions", width: "17%" },
   ];
 
-  const tableData = [
+  const tableData: any[] = [
     {
       arabicTitle: "سياسة الخصوصية",
       englishTitle: "Our Privacy Policy",
@@ -46,7 +46,7 @@ const AboutUs = () => {
     },
   ];
 
-  const extraButtons = [
+  const extraButtons: any[] = [
     {
       label: "🖨️",
       className: "bg-gray-300 border p-2 rounded-full",
@@ -59,7 +59,7 @@ const AboutUs = () => {
     },
   ];
 
-  const formFields = [
+  const formFields: any[] = [
     {
       id: "Address",
       label: "عنوان البند",
@@ -77,7 +77,7 @@ const AboutUs = () => {
         searchPlaceholder="عنوان البند"
         tableHeaders={tableHeaders}
         tableData={tableData}
-        onSearch={(value) => console.log("Search:", value)}
+        onSearch={(value: any) => console.log("Search:", value)}
         onReset={() => console.log("Reset")}
         onAddNew={() => console.log("Add New Item")}
         extraButtons={extraButtons}

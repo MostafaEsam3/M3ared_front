@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import xImage from '../../assets/Icon.svg';
 
-// Define props for the ModalTemplate
 const ModalTemplate = ({
   isOpen = false,
   onClose = () => {},
@@ -9,23 +8,19 @@ const ModalTemplate = ({
   inputs = [],
   buttons = [],
   onSubmit = () => {},
-}) => {
-  // State to manage form data
-  const [formData, setFormData] = useState({});
+}: any) => {
+  const [formData, setFormData] = useState<any>({});
 
-  // Handle input changes
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     onSubmit(formData);
   };
 
-  // Render nothing if modal is closed
   if (!isOpen) return null;
 
   return (
@@ -37,39 +32,29 @@ const ModalTemplate = ({
         role="dialog"
         aria-modal="true"
       >
-        {/* Background Overlay */}
         <div
           className="fixed inset-0 bg-gray-500/75 transition-opacity"
           aria-hidden="true"
           onClick={onClose}
         ></div>
 
-        {/* Modal Container */}
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <div className="relative transform overflow-hidden rounded-lg bg-white text-right shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
-              {/* Modal Content */}
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                {/* Header with Icon */}
                 <div className="sm:flex flex-row-reverse">
                   <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full sm:mx-0 sm:h-5 sm:w-5">
                     <img src={xImage} alt="x" />
                   </div>
                 </div>
 
-                {/* Modal Title */}
                 <h1 className="text-xl font-bold">{title}</h1>
 
-                {/* Form */}
                 <form onSubmit={handleSubmit}>
                   <div className="container-input mt-2">
                     <div className="grid grid-cols-12 gap-4">
-                      {/* Dynamic Inputs */}
-                      {inputs.map((input, index) => (
-                        <div
-                          key={index}
-                          className="col-span-12 md:col-span-6"
-                        >
+                      {inputs.map((input: any, index: any) => (
+                        <div key={index} className="col-span-12 md:col-span-6">
                           <label className="font-normal text-sm">
                             {input.label}
                           </label>
@@ -97,9 +82,8 @@ const ModalTemplate = ({
                     </div>
                   </div>
 
-                  {/* Dynamic Buttons */}
                   <div className="bg-gray-50 sm:flex sm:flex-row-reverse gap-2 mt-4">
-                    {buttons.map((button, index) => (
+                    {buttons.map((button: any, index: any) => (
                       <button
                         key={index}
                         type={button.type || 'button'}

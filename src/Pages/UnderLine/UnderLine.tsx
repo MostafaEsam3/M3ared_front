@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-export default function ServiceTabs() {
-  const [activeTab, setActiveTab] = useState('steps');
+const ServiceTabs: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<string>('steps');
 
   return (
     <div className="border-b border-gray-200 p-7" style={{ direction: 'rtl' }}>
@@ -34,4 +34,6 @@ export default function ServiceTabs() {
       </div>
     </div>
   );
-}
+};
+
+export default ServiceTabs;
