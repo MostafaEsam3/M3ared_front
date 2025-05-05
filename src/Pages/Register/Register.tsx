@@ -12,12 +12,12 @@ const Register: React.FC = () => {
           <form className="bg-white shadow-md rounded px-14 pt-6 pb-8 mb-4 w-full">
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                اسم المستخدم
+              البريد الالكتروني
               </label>
               <input
                 type="text"
                 id="username"
-                placeholder="Username"
+                placeholder="البريد الالكتروني"
                 className="shadow appearance-none border rounded-3xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -28,7 +28,7 @@ const Register: React.FC = () => {
               <input
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder="كلمه المرور"
                 className="shadow appearance-none border rounded-3xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -36,17 +36,17 @@ const Register: React.FC = () => {
               <div>
                 <button
                   type="submit"
-                  className="text-black font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline w-full text-x"
+                  className="bg-[#1B8354] text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline w-full sm:mt-2 md:mt-0"
                 >
-                  نسيت كلمه المرور
+                  دخول الان
                 </button>
               </div>
               <div>
                 <button
                   type="submit"
-                  className="bg-[#1B8354] text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline w-full sm:mt-2 md:mt-0"
+                  className="text-black font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline w-full text-x"
                 >
-                  دخول الان
+                  نسيت كلمه المرور
                 </button>
               </div>
             </div>

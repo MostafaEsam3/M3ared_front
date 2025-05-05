@@ -6,6 +6,10 @@ import deleteImage from "./../../assets/Leading Icon (1).svg";
 import { useCrud } from "../../Service/GeniricService/useCrud";
 import exelImage from "./../../assets/exel.svg";
 import print from "./../../assets/exel2.svg";
+import activeicone from "./../../assets/Cell content.svg";
+import deactiveicone from "./../../assets/deactive.svg";
+
+
 
 const ElectronicService: React.FC = () => {
   //  const { getQuery, create, update, remove } = useCrud('/categories', undefined, {
@@ -19,9 +23,10 @@ const ElectronicService: React.FC = () => {
   ];
 
   const tableHeaders: any[] = [
-    { label: "عنوان البند باللغة العربية", key: "name", width: "33%" },
-    { label: "عنوان البند باللغة الإنجليزية", key: "englishTitle", width: "50%" },
-    { label: "إجراء", key: "actions", width: "17%" },
+    { label: "عنوان البند باللغة العربية", key: "name", width: "40%" },
+    { label: "عنوان البند باللغة الإنجليزية", key: "englishTitle", width: "40%" },
+    { label: "مفعل", key: "ActiveKey", width: "10%" },
+    { label: "إجراء", key: "actions", width: "10%" },
   ];
 
   // console.log(getQuery.data, 'getQuery.data' );
@@ -29,8 +34,18 @@ const ElectronicService: React.FC = () => {
 
 const tableData: any[] = [
   {
-    name: "Item 1",
-    englishTitle: "Title 1",
+    name: "ترخيص معرض",
+    englishTitle: "Exhibition License",
+    ActiveKey:(
+      <div className="flex gap-3">
+      <button
+        className="p-1"
+        onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
+      >
+        <img src={activeicone} alt="edit" />
+      </button>
+    </div>
+    ),
     actions: (
       <div className="flex justify-center gap-3">
         <button
@@ -49,12 +64,22 @@ const tableData: any[] = [
     ),
   },
   {
-    name: "Item 2",
-    englishTitle: "Title 2",
+    name: "ترخيص مئتمر",
+    englishTitle: "Conference License",
+    ActiveKey:(
+      <div className="flex gap-3">
+      <button
+        className=" p-1"
+        onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
+      >
+        <img src={deactiveicone} alt="edit" />
+      </button>
+    </div>
+    ),
     actions: (
       <div className="flex justify-center gap-3">
         <button
-          className="bg-gray-300 border p-1 rounded-full"
+          className="border p-1"
           onClick={() => console.log("Edit", { id: 2, name: "Item 2" })}
         >
           <img src={editImage} alt="edit" />

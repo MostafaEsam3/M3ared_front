@@ -185,7 +185,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
                   {tableData.map((row, rowIndex) => (
                     <tr key={rowIndex} className="border-b border-gray-200">
                       {tableHeaders.map((header, colIndex) => (
-                        <td key={colIndex} className="p-2 text-center">
+                        <td key={colIndex} className="p-2 text-right">
                           {row[header.key] || row.actions}
                         </td>
                       ))}
@@ -209,7 +209,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
           </div>
         </div>
       </div>
-       <div className=" mt-12 pb-5">
+       <div className=" mt-[100px] pb-5">
                         <h1 className=" text-[#161616] font-bold text-sm">
                             جميع الحقوق محفوظة للهيئة العامة للمعارض والمؤتمرات © 2025
                         </h1>
