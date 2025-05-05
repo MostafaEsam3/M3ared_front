@@ -41,16 +41,16 @@ const BreedCrumb = ({
                 <div className=" bg-[#FFFFFF] py-3 px-6 mt-6 rounded-2xl text-right " style={{ direction: "rtl" }}>
                     <div>
 
-
-                        <div className="head bg-gradient-to-r from-green-800 to-green-300 p-8 h-auto  rounded-lg  mt-5">
+{/* IMAGE BACKGROUND  */}
+                        <div className="head tree  p-8 h-auto  rounded-lg  mt-5">
                             <div className='flex flex-col md:flex-row items-center justify-between'>
                                 <div className='flex flex-col md:flex-row items-center justify-center gap-0 md:gap-4'>
                                     <div className='bg-white rounded-full w-[70px] h-[70px] flex items-center justify-center'>
                                         <img src={ProfileImage} alt="icon" className='w-[60px] h-[60px]  ' />
                                     </div>
                                     <div className=''>
-                                        <h1 className="font-bold text-[#161616] mt-3 md:mt-0 text-2xl md:text-2xl ">عبدالعزيز محمد</h1>
-                                        <p className='mt-0 md:mt-3 text-center md:text-start'>اخر ظهور 12:00:00</p>
+                                        <h1 className="font-bold text-[#FFFFFF] mt-3 md:mt-0 text-2xl md:text-2xl ">عبدالعزيز محمد</h1>
+                                        <p className='mt-0 md:mt-3 text-center md:text-start  text-[#FFFFFF]'>اخر ظهور 12:00:00</p>
                                     </div>
                                 </div>
 

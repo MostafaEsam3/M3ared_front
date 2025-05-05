@@ -3,6 +3,8 @@ import editImage from "./../../assets/Leading Icon.svg";
 import deleteImage from "./../../assets/Leading Icon (1).svg";
 import ModalTemplate from '../../Shared/Modal/ModalTemplate';
 import arrow from "./../../assets/arrow-left.svg";
+import pagination from "../../assets/_PaginationItem.svg";
+
 
 interface FaqProps {
   isOpen: boolean;
@@ -269,6 +271,8 @@ const Faq: React.FC<FaqProps> = ({ isOpen, onClose }) => {
                   <button className="text-green-600 font-semibold underline">1</button>
                   <button className="hover:text-black">2</button>
                   <button className="hover:text-black">3</button>
+                   <button className="hover:text-black"><img src={pagination} alt="" /></button>
+
                   <span>999</span>
                   <button className="hover:text-black">{">"}</button>
                 </div>

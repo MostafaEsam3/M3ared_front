@@ -1,5 +1,7 @@
 import React, { useState, FC } from "react";
 import arrow from "../../assets/arrow-left.svg";
+import pagination from "../../assets/_PaginationItem.svg";
+
 // All interfaces replaced with type aliases using `any`
 type BreadcrumbItem = any;
 type TableHeader = any;
@@ -110,7 +112,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
                   <div className="col-span-12 lg:col-span-2 md:col-span-3 flex flex-col justify-end h-full">
                     <button
                       type="button"
-                      className="bg-[#D2D6DB] text-black rounded-3xl p-2 w-full"
+                      className="border border-[#d2d6db]   text-black rounded-3xl p-2 w-full "
                       onClick={onReset}
                     >
                       إعادة تعيين
@@ -158,10 +160,9 @@ const DashboardPage: FC<DashboardPageProps> = ({
 
                  </div>
                 ))}
-                <button className="px-4 py-2 flex gap-1 items-center bg-[#1b8354] text-white rounded-full">
+                <button className="px-4 py-2 flex gap-1 items-center bg-[#1B8354] text-white rounded-full">
                   <img src={"add"} alt="" />
-                  إضافة حركة جديدة
-                </button>
+إضافة نوع خدمة جديد                </button>
               </div>
             </div>
 
@@ -185,7 +186,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
                   {tableData.map((row, rowIndex) => (
                     <tr key={rowIndex} className="border-b border-gray-200">
                       {tableHeaders.map((header, colIndex) => (
-                        <td key={colIndex} className="p-2 text-right">
+                        <td key={colIndex} className="p-2 text-right text-[16px]">
                           {row[header.key] || row.actions}
                         </td>
                       ))}
@@ -200,6 +201,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
               <button className="text-green-600 font-semibold underline">1</button>
               <button className="hover:text-black">2</button>
               <button className="hover:text-black">3</button>
+              <button className="hover:text-black"><img src={pagination} alt="" /></button>
               <span>999</span>
               <button className="hover:text-black">{">"}</button>
               </div>

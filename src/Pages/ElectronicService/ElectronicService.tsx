@@ -23,10 +23,10 @@ const ElectronicService: React.FC = () => {
   ];
 
   const tableHeaders: any[] = [
-    { label: "عنوان البند باللغة العربية", key: "name", width: "40%" },
-    { label: "عنوان البند باللغة الإنجليزية", key: "englishTitle", width: "40%" },
-    { label: "مفعل", key: "ActiveKey", width: "10%" },
-    { label: "إجراء", key: "actions", width: "10%" },
+    { label: "نوع الخدمة باللغة العربية   ", key: "name", width: "20%" },
+    { label: "نوع الخدمة باللغة الانجليزية", key: "englishTitle", width: "30%" },
+    { label: "مفعل", key: "ActiveKey", width: "20%" },
+    { label: "إجراء", key: "actions", width: "20%" },
   ];
 
   // console.log(getQuery.data, 'getQuery.data' );
@@ -47,7 +47,10 @@ const tableData: any[] = [
     </div>
     ),
     actions: (
-      <div className="flex justify-center gap-3">
+      <div className="flex  gap-3">
+           <div className="px-3 py-[6px] font-bold rounded-3xl bg-[#F3F4F6]">
+اضافة خدمات
+        </div>
         <button
           className="bg-gray-300 border p-1 rounded-full"
           onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
@@ -64,8 +67,42 @@ const tableData: any[] = [
     ),
   },
   {
-    name: "ترخيص مئتمر",
+    name: "ترخيص مؤتمر",
     englishTitle: "Conference License",
+    ActiveKey:(
+      <div className="flex gap-3">
+     
+      <button
+        className=" p-1"
+        onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
+      >
+        <img src={deactiveicone} alt="edit" />
+      </button>
+    </div>
+    ),
+    actions: (
+    <div className="flex  gap-3">
+         <div className="px-3 py-[6px] font-bold rounded-3xl bg-[#F3F4F6]">
+اضافة خدمات
+        </div>
+        <button
+          className="bg-gray-300 border p-1 rounded-full"
+          onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
+        >
+          <img src={editImage} alt="edit" />
+        </button>
+        <button
+          className="bg-gray-300 border p-1 rounded-full"
+          // onClick={() => remove(1)}
+        >
+          <img src={deleteImage} alt="delete" />
+        </button>
+      </div>
+    ),
+  },
+   {
+    name: "ترخيص اجتماع ",
+    englishTitle: "Meeting License",
     ActiveKey:(
       <div className="flex gap-3">
       <button
@@ -77,16 +114,19 @@ const tableData: any[] = [
     </div>
     ),
     actions: (
-      <div className="flex justify-center gap-3">
+   <div className="flex  gap-3">
+       <div className="px-3 py-[6px] font-bold rounded-3xl bg-[#F3F4F6]">
+اضافة خدمات
+        </div>
         <button
-          className="border p-1"
-          onClick={() => console.log("Edit", { id: 2, name: "Item 2" })}
+          className="bg-gray-300 border p-1 rounded-full"
+          onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
         >
           <img src={editImage} alt="edit" />
         </button>
         <button
           className="bg-gray-300 border p-1 rounded-full"
-          // onClick={() =>}
+          // onClick={() => remove(1)}
         >
           <img src={deleteImage} alt="delete" />
         </button>
@@ -138,7 +178,7 @@ const tableData: any[] = [
   return (
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
-      title="الخدمات الالكترونية"
+      title="أنواع الخدمات الرئيسية "
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}
