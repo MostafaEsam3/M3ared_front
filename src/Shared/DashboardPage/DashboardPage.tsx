@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-
+import arrow from "../../assets/arrow-left.svg";
 // All interfaces replaced with type aliases using `any`
 type BreadcrumbItem = any;
 type TableHeader = any;
@@ -37,32 +37,18 @@ const DashboardPage: FC<DashboardPageProps> = ({
 
   return (
     <section
-      className="dashboard p-5 bg-red-600"
-      style={{ backgroundColor: "#F3F4F6", direction: "rtl", overflow: "auto" }}
+      className="dashboard p-6 bg-red-600"
+      style={{ backgroundColor: "#F3F4F6", direction: "rtl",  }}
     >
       {/* Breadcrumb Section header */}
       <div className="rounded-2xl">
-        <div className="head p-4 bg-white rounded-lg mt-5">
+        <div className="head p-6 bg-white rounded-lg ">
           <nav className="flex" aria-label="Breadcrumb">
-            <ol className="inline-flex items-center space-x-2 space-x-reverse">
+            <ol className="inline-flex items-center gap-1">
               {breadcrumbItems.map((item, index) => (
-                <li key={index} className="inline-flex items-center">
+                <li key={index} className="inline-flex gap-1 items-center">
                   {index > 0 && (
-                    <svg
-                      className="rtl:rotate-90 w-3 h-3 text-gray-400 mx-1"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 6 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m5 9-4-4 4-4"
-                      />
-                    </svg>
+                    <img src={arrow} alt="" />
                   )}
                   <a
                     href={item.href}
@@ -78,15 +64,15 @@ const DashboardPage: FC<DashboardPageProps> = ({
               ))}
             </ol>
           </nav>
-          <h1 className="font-bold text-[#161616] text-3xl pt-5">{title}</h1>
+          <h1 className="font-bold text-[#161616] text-3xl pt-6">{title}</h1>
         </div>
       </div>
 
       {/* Search Filter Section AND Table container */}
-      <div className="bg-[#FFFFFF] mt-10 Wrap-search-Table rounded-2xl">
+      <div className="bg-[#FFFFFF] mt-5 Wrap-search-Table rounded-2xl">
         <div className="p-5">
-          <div className="head p-3 pb-5 bg-[#F3F4F6] rounded-2xl mt-1">
-            <h1 className="font-bold text-[#161616] text-xl pt-5">تصفية البحث</h1>
+          <div className="head p-8  bg-[#F3F4F6] rounded-2xl mt-1">
+            <h1 className="font-bold text-[#161616] text-xl ">تصفية البحث</h1>
             <div className="mt-4">
               <form>
                 <div className="grid grid-cols-12 gap-3 items-end">
@@ -108,9 +94,10 @@ const DashboardPage: FC<DashboardPageProps> = ({
                       />
                     </div>
                   ))}
+              
 
                   {/* Search Button */}
-                  <div className="col-span-12 md:col-span-1 flex flex-col justify-end h-full">
+                  <div className="col-span-12 lg:col-span-1 md:col-span-3 flex flex-col justify-end h-full">
                     <button
                       type="submit"
                       className="bg-[#0D121C] text-white rounded-3xl p-2 w-full"
@@ -120,7 +107,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
                   </div>
 
                   {/* Reset Button */}
-                  <div className="col-span-12 md:col-span-2 flex flex-col justify-end h-full">
+                  <div className="col-span-12 lg:col-span-2 md:col-span-3 flex flex-col justify-end h-full">
                     <button
                       type="button"
                       className="bg-[#D2D6DB] text-black rounded-3xl p-2 w-full"
@@ -134,6 +121,19 @@ const DashboardPage: FC<DashboardPageProps> = ({
             </div>
           </div>
         </div>
+        {/* <div className="table-head mb-4  rounded-lg py-4 px-8 flex gap-4 flex-col lg:flex-row justify-between items-start lg:items-center">
+              <h3 className="text-[#161616] font-bold text-[24px]">
+                قائمة حركات الحضور و الانصراف للموظفين
+              </h3>
+              <div className="flex flex-wrap gap-4 items-center">
+                <img src={"excel"} alt="" />
+                <img src={"print"} alt="" />
+                <button className="px-4 py-2 flex gap-1 items-center bg-[#1b8354] text-white rounded-full">
+                  <img src={"add"} alt="" />
+                  إضافة حركة جديدة
+                </button>
+              </div>
+            </div> */}
 
         {/* Table Section */}
         <div className="mt-7">
@@ -142,21 +142,25 @@ const DashboardPage: FC<DashboardPageProps> = ({
               <div className="col-span-6 text-right font-bold text-2xl">
                 {title}
               </div>
-              <div className="col-span-12 md:col-span-6 flex justify-end gap-2">
+              <div className="col-span-12 md:col-span-6 flex justify-end gap-2 items-center">
                 {extraButtons.map((btn, index) => (
-                  <button
-                    key={index}
+                  // <button
+                  //   key={index}
+                  //   className={btn.className}
+                  //   onClick={btn.onClick}
+                  // >
+                  //   {btn.icon || btn.label }
+                  // </button>
+                  <div  key={index}
                     className={btn.className}
-                    onClick={btn.onClick}
-                  >
-                    {btn.icon || btn.label}
-                  </button>
+                    onClick={btn.onClick}>
+                    {btn.icon}
+
+                 </div>
                 ))}
-                <button
-                  className="bg-green-600 text-white px-4 py-1 rounded-full"
-                  onClick={onAddNew}
-                >
-                  إضافة بند جديد
+                <button className="px-4 py-2 flex gap-1 items-center bg-[#1b8354] text-white rounded-full">
+                  <img src={"add"} alt="" />
+                  إضافة حركة جديدة
                 </button>
               </div>
             </div>
@@ -192,18 +196,26 @@ const DashboardPage: FC<DashboardPageProps> = ({
 
               {/* Pagination (Optional) */}
               <div className="flex items-center justify-center gap-4 mt-4 text-gray-600 text-sm">
-                <button className="hover:text-black">{"<"}</button>
-                <span>999</span>
-                <button className="hover:text-black">3</button>
-                <button className="hover:text-black">2</button>
-                <button className="text-green-600 font-semibold underline">1</button>
-                <button className="hover:text-black">{">"}</button>
+              <button className="hover:text-black">{"<"}</button>
+              <button className="text-green-600 font-semibold underline">1</button>
+              <button className="hover:text-black">2</button>
+              <button className="hover:text-black">3</button>
+              <span>999</span>
+              <button className="hover:text-black">{">"}</button>
+              </div>
+              <div>
               </div>
             </div>
           </div>
         </div>
       </div>
+       <div className=" mt-12 pb-5">
+                        <h1 className=" text-[#161616] font-bold text-sm">
+                            جميع الحقوق محفوظة للهيئة العامة للمعارض والمؤتمرات © 2025
+                        </h1>
+                    </div>
     </section>
+
   );
 };
 

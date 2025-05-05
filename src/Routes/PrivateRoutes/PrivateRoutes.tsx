@@ -15,6 +15,7 @@ import NewsAboutUs from '../../Pages/NewsAboutUs/NewsAboutUs';
 import ListOfEvents from '../../Pages/ListOfEvents/ListOfEvents';
 import TypeOfEvents from '../../Pages/TypeOfEvents/TypeOfEvents';
 import Faq from '../../Pages/Faq/Faq';
+import { UsersPage } from './../../Service/UsersPage/UsersPage';
 
 // Public routes with layout
 export const publicRoutesWithLayout: any[] = [
@@ -98,6 +99,12 @@ export const publicRoutesWithLayout: any[] = [
     name: 'faq',
     component: Faq,
   },
+  // {
+  //   path: '/user',
+  //   name: 'user',
+  //   component: UsersPage,
+  // }
+ 
 ];
 
 // Public routes without layout

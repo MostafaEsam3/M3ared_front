@@ -2,6 +2,7 @@
 import React from 'react';
 import ProfileImage from "./../../assets/Image.svg";
 import Sequrity from "./../../assets/security-password.svg";
+import arrow from "../../assets/arrow-left.svg";
 
 const BreedCrumb = ({
     breadcrumbItems,
@@ -9,28 +10,15 @@ const BreedCrumb = ({
 }: any) => {
     return (
         <>
-            <div className=" p-5 text-right bg-[#F3F4F6]" style={{ direction: "rtl" }}>
-                <div className="head p-3 bg-[#FFFFFF] h-[130px] rounded-2xl  mt-2">
+            <div className=" p-5 text-right bg-[#F3F4F6]" >
+                <div className="head p-6 bg-white rounded-lg ">
                     <nav className="flex" aria-label="Breadcrumb">
                         <ol className="inline-flex items-center space-x-2 space-x-reverse">
                             {breadcrumbItems.map((item: any, index: any) => (
                                 <li key={index} className="inline-flex items-center">
                                     {index > 0 && (
-                                        <svg
-                                            className="rtl:rotate-90 w-3 h-3 text-gray-400 mx-1"
-                                            aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 6 10"
-                                        >
-                                            <path
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="m5 9-4-4 4-4"
-                                            />
-                                        </svg>
+                                 <img src={arrow} alt="" />
+
                                     )}
                                     <a
                                         href={item.href}
@@ -45,10 +33,10 @@ const BreedCrumb = ({
                             ))}
                         </ol>
                     </nav>
-                    <h1 className="font-bold text-[#161616] text-3xl pt-5">{title}</h1>
+                    <h1 className="font-bold text-[#161616] text-3xl pt-5">{"الملف الشخصي"}</h1>
                 </div>
 
-                <div className="  text-right rounded-lg" style={{ direction: "rtl" }}>
+                <div className=" bg-[#FFFFFF] py-3 px-6 mt-6 rounded-2xl text-right " style={{ direction: "rtl" }}>
                     <div className="head bg-gradient-to-r from-green-800 to-green-300 p-8 h-auto  rounded-lg  mt-5">
                         <div className='flex flex-col md:flex-row items-center justify-between'>
                             <div className='flex flex-col md:flex-row items-center justify-center gap-0 md:gap-4'>
@@ -72,7 +60,7 @@ const BreedCrumb = ({
                         </div>
                     </div>
 
-                    <div className='personal-info mt-5 grid grid-cols-12 gap-4  py-7 rounded-lg px-8 bg-[#FFFFFF]'>
+                    <div className='personal-info mt-5 grid grid-cols-12 gap-4  py-7 rounded-lg bg-[#FFFFFF]'>
                         <div className='col-span-12 md:col-span-7'>
                             <div className='border border-gray-300 rounded-lg px-3 py-7 shadow-md bg-[#FFFFFF] '>
                                 <h1 className='text-2xl font-bold text-[#1F2A37]'>المعلومات الشخصية</h1>

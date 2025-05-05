@@ -3,47 +3,86 @@ import React from "react";
 import DashboardPage from "../../Shared/DashboardPage/DashboardPage";
 import editImage from "./../../assets/Leading Icon.svg";
 import deleteImage from "./../../assets/Leading Icon (1).svg";
-import exelImage from "./../../assets/Leading Icon11.svg";
+import { useCrud } from "../../Service/GeniricService/useCrud";
+import exelImage from "./../../assets/exel.svg";
+import print from "./../../assets/exel2.svg";
 
 const ElectronicService: React.FC = () => {
+  //  const { getQuery, create, update, remove } = useCrud('/categories', undefined, {
+  //         staleTime: 1000 * 30,        // 30 seconds
+  //         refetchOnMount: true,
+  //       });
+  
   const breadcrumbItems: any[] = [
     { label: "لوحة التحكم", href: "#" },
     { label: "الخدمات الالكترونية", href: "#" },
   ];
 
   const tableHeaders: any[] = [
-    { label: "عنوان البند باللغة العربية", key: "arabicTitle", width: "33%" },
+    { label: "عنوان البند باللغة العربية", key: "name", width: "33%" },
     { label: "عنوان البند باللغة الإنجليزية", key: "englishTitle", width: "50%" },
     { label: "إجراء", key: "actions", width: "17%" },
   ];
 
-  const tableData: any[] = [
-    {
-      arabicTitle: "الخدمات الالكترونية",
-      englishTitle: "Our Elictronc",
-      actions: (
-        <div className="flex justify-center gap-3">
-          <button className="bg-gray-300 border p-1 rounded-full">
-            <img src={editImage} alt="edit" />
-          </button>
-          <button className="bg-gray-300 border p-1 rounded-full">
-            <img src={deleteImage} alt="delete" />
-          </button>
-        </div>
-      ),
-    },
-  ];
+  // console.log(getQuery.data, 'getQuery.data' );
+// const tableData = mapTableData(getQuery?.data || [], tableHeaders, remove);
 
-  const extraButtons: any[] = [
+const tableData: any[] = [
+  {
+    name: "Item 1",
+    englishTitle: "Title 1",
+    actions: (
+      <div className="flex justify-center gap-3">
+        <button
+          className="bg-gray-300 border p-1 rounded-full"
+          onClick={() => console.log("Edit", { id: 1, name: "Item 1" })}
+        >
+          <img src={editImage} alt="edit" />
+        </button>
+        <button
+          className="bg-gray-300 border p-1 rounded-full"
+          // onClick={() => remove(1)}
+        >
+          <img src={deleteImage} alt="delete" />
+        </button>
+      </div>
+    ),
+  },
+  {
+    name: "Item 2",
+    englishTitle: "Title 2",
+    actions: (
+      <div className="flex justify-center gap-3">
+        <button
+          className="bg-gray-300 border p-1 rounded-full"
+          onClick={() => console.log("Edit", { id: 2, name: "Item 2" })}
+        >
+          <img src={editImage} alt="edit" />
+        </button>
+        <button
+          className="bg-gray-300 border p-1 rounded-full"
+          // onClick={() =>}
+        >
+          <img src={deleteImage} alt="delete" />
+        </button>
+      </div>
+    ),
+  },
+];
+
+  
+
+    const extraButtons: any[] = [
+   
     {
-      label: "🖨️",
-      className: "bg-gray-300 border p-2 rounded-full",
-      onClick: () => console.log("Print"),
-    },
-    {
-      icon: <img src={exelImage} alt="Excel" className="w-5 h-5" />,
-      className: "bg-gray-300 p-2 rounded-full",
+      icon: <img src={exelImage} alt="Excel"  />,
+      className: " flex  bg-[#f3f4f6]  rounded-full" ,
       onClick: () => console.log("Export to Excel"),
+    },
+     {
+      icon: <img src={print}  />,
+      className: " flex  bg-[#f3f4f6]  rounded-full",
+      onClick: () => console.log("Print"),
     },
   ];
 

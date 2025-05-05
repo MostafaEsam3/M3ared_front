@@ -3,7 +3,8 @@ import React from "react";
 import DashboardPage from "../../Shared/DashboardPage/DashboardPage";
 import editImage from "./../../assets/Leading Icon.svg";
 import deleteImage from "./../../assets/Leading Icon (1).svg";
-import exelImage from "./../../assets/Leading Icon11.svg";
+import exelImage from "./../../assets/exel.svg";
+import print from "./../../assets/exel2.svg";
 
 const NewsAboutUs: React.FC = () => {
   const breadcrumbItems: any[] = [
@@ -34,16 +35,17 @@ const NewsAboutUs: React.FC = () => {
     },
   ];
 
-  const extraButtons: any[] = [
+   const extraButtons: any[] = [
+   
     {
-      label: "🖨️",
-      className: "bg-gray-300 border p-2 rounded-full",
-      onClick: () => console.log("Print"),
-    },
-    {
-      icon: <img src={exelImage} alt="Excel" className="w-5 h-5" />,
-      className: "bg-gray-300 p-2 rounded-full",
+      icon: <img src={exelImage} alt="Excel"  />,
+      className: " flex  bg-[#f3f4f6]  rounded-full" ,
       onClick: () => console.log("Export to Excel"),
+    },
+     {
+      icon: <img src={print}  />,
+      className: " flex  bg-[#f3f4f6]  rounded-full",
+      onClick: () => console.log("Print"),
     },
   ];
 

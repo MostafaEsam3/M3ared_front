@@ -3,7 +3,9 @@ import React from "react";
 import DashboardPage from "../../Shared/DashboardPage/DashboardPage";
 import editImage from "./../../assets/Leading Icon.svg";
 import deleteImage from "./../../assets/Leading Icon (1).svg";
-import exelImage from "./../../assets/Leading Icon11.svg";
+import exelImage from "./../../assets/exel.svg";
+import print from "./../../assets/exel2.svg";
+
 
 const ListOfEvents: React.FC = () => {
   const breadcrumbItems: any[] = [
@@ -26,7 +28,7 @@ const ListOfEvents: React.FC = () => {
           <button className="bg-gray-300 border p-1 rounded-full">
             <img src={editImage} alt="edit" />
           </button>
-          <button className="bg-gray-300 border p-1 rounded-full">
+          <button className="bg-[#fef3f2] border p-1 rounded-full ">
             <img src={deleteImage} alt="delete" />
           </button>
         </div>
@@ -35,15 +37,16 @@ const ListOfEvents: React.FC = () => {
   ];
 
   const extraButtons: any[] = [
+   
     {
-      label: "🖨️",
-      className: "bg-gray-300 border p-2 rounded-full",
-      onClick: () => console.log("Print"),
-    },
-    {
-      icon: <img src={exelImage} alt="Excel" className="w-5 h-5" />,
-      className: "bg-gray-300 p-2 rounded-full",
+      icon: <img src={exelImage} alt="Excel"  />,
+      className: " flex  bg-[#f3f4f6]  rounded-full" ,
       onClick: () => console.log("Export to Excel"),
+    },
+     {
+      icon: <img src={print}  />,
+      className: " flex  bg-[#f3f4f6]  rounded-full",
+      onClick: () => console.log("Print"),
     },
   ];
 
@@ -53,21 +56,21 @@ const ListOfEvents: React.FC = () => {
       label: "نوع الخدمة باللغة العربية ",
       type: "text",
       placeholder: " نوع الخدمة باللغة العربية ",
-      inputCss: "col-span-12 md:col-span-3",
+      inputCss: " xl:col-span-3 lg:col-span-3 md:col-span-6",
     },
     {
       id: "statusDate",
       label: " تاريخ الفعاليه",
       type: "date",
       placeholder: "تاريخ الفعاليه",
-      inputCss: "col-span-12 md:col-span-3",
+      inputCss: " xl:col-span-3 lg:col-span-3 md:col-span-6",
     },
     {
       id: "status",
       label: "حالة التفعيل",
       type: "text",
       placeholder: " حالة التفعيل",
-      inputCss: "col-span-12 md:col-span-3",
+      inputCss: " xl:col-span-3 lg:col-span-3 md:col-span-6",
     },
   ];
 
