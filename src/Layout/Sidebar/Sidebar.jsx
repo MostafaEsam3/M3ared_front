@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, onItemClick }) => {
       title: 'الخدمات الإلكترونية',
       icon: <FiGrid />,
       isExpanded: true,
-      Link: '/electronicService',
+      Link: '/',
     },
     {
       id: 'events',
@@ -103,7 +103,7 @@ const Sidebar = ({ isOpen, onItemClick }) => {
       title: 'عن الهيئة',
       icon: <FiPhone />,
       isExpanded: false,
-      Link: '/',
+      Link: '/about-us',
     },
     {
       id: 'authentication',

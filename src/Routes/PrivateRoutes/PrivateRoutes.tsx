@@ -20,7 +20,7 @@ import { UsersPage } from './../../Service/UsersPage/UsersPage';
 // Public routes with layout
 export const publicRoutesWithLayout: any[] = [
   {
-    path: '/',
+    path: '/about-us',
     name: 'about us',
     component: AboutUs,
   },
@@ -75,7 +75,7 @@ export const publicRoutesWithLayout: any[] = [
     component: ServiceTabs,
   },
   {
-    path: '/electronicService',
+    path: '/',
     name: 'electronic service',
     component: ElectronicService,
   },

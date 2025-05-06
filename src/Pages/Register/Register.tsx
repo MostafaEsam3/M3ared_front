@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderLogo from "../../assets/Header.svg";
+import { Link } from 'react-router-dom';
 
 const Register: React.FC = () => {
   return (
@@ -38,7 +39,9 @@ const Register: React.FC = () => {
                   type="submit"
                   className="bg-[#1B8354] text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline w-full sm:mt-2 md:mt-0"
                 >
-                  دخول الان
+                  <Link to={"/"}>   
+                  دخول الان              
+                       </Link>
                 </button>
               </div>
               <div>
