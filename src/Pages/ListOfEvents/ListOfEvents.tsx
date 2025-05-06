@@ -78,6 +78,7 @@ const ListOfEvents: React.FC = () => {
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
       title="قائمة الفعاليات"
+      titleTable="قائمة أنواع الفعاليات"
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}

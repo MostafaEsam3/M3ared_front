@@ -62,6 +62,7 @@ const Terms: React.FC = () => {
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
       title="الشروط والاحكام"
+      titleTable="بنود الشروط والاحكام"
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}

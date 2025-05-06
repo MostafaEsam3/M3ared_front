@@ -12,6 +12,7 @@ type FormField = any;
 type DashboardPageProps = {
   breadcrumbItems: BreadcrumbItem[];
   title: string;
+  titleTable?:string;
   searchPlaceholder: string;
   tableHeaders: TableHeader[];
   tableData: TableData[];
@@ -25,6 +26,7 @@ type DashboardPageProps = {
 const DashboardPage: FC<DashboardPageProps> = ({
   breadcrumbItems,
   title,
+  titleTable,
   searchPlaceholder,
   tableHeaders,
   tableData,
@@ -142,7 +144,7 @@ const DashboardPage: FC<DashboardPageProps> = ({
           <div className="head p-3 bg-white rounded-2xl mt-5">
             <div className="grid grid-cols-12 items-center rounded px-4 py-2">
               <div className="col-span-6 text-right font-bold text-2xl">
-                {title}
+                {titleTable}
               </div>
               <div className="col-span-12 md:col-span-6 flex justify-end gap-2 items-center">
                 {extraButtons.map((btn, index) => (

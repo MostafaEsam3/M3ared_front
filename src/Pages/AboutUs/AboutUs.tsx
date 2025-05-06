@@ -76,6 +76,7 @@ const AboutUs: React.FC = () => {
       <DashboardPage
         breadcrumbItems={breadcrumbItems}
         title="عن الهيئة"
+        titleTable="بنود نبذة عنا"
         searchPlaceholder="عنوان البند"
         tableHeaders={tableHeaders}
         tableData={tableData}

@@ -83,7 +83,8 @@ const NewsAboutUs: React.FC = () => {
   return (
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
-      title="قائمة الأخبار"
+      title="اخر اخبار الهيئة"
+      titleTable="قائمة الأخبار"
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}

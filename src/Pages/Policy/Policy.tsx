@@ -62,6 +62,7 @@ const Policy: React.FC = () => {
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
       title="سياسه الخصوصيه"
+      titleTable="بنود سياسة الخصوصية"
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}

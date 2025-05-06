@@ -178,7 +178,8 @@ const tableData: any[] = [
   return (
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
-      title="أنواع الخدمات الرئيسية "
+      title="الخدمات الرئيسية "
+      titleTable="أنواع الخدمات الرئيسية"
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}

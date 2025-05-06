@@ -76,6 +76,7 @@ const TypeOfEvents: React.FC = () => {
     <DashboardPage
       breadcrumbItems={breadcrumbItems}
       title="أنواع الفاعليه"
+      titleTable="قائمة أنواع الفعاليات"
       searchPlaceholder="عنوان البند"
       tableHeaders={tableHeaders}
       tableData={tableData}
